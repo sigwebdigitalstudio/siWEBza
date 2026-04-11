@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto Profesional - Desarrollo Web</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script src="script.js" defer></script>
+
+
+    <style>
+        /* =========================================================
+           VARIABLES Y RESETEO (Solo para esta sección)
+           ========================================================= */
+        :root {
+            --sw-color-primary: #007bff; /* Azul Eléctrico */
+            --sw-color-secondary: #6610f2; /* Morado Profundo */
+            --sw-color-whatsapp: #25d366;
+            --sw-bg-dark: #0a0e17; /* Fondo Casi Negro */
+            --sw-bg-parallel-1: #101624; /* Color Paralelo 1 */
+            --sw-bg-parallel-2: #0e121d; /* Color Paralelo 2 */
+            --sw-text-main: #ffffff;
+            --sw-text-muted: #a0aec0;
+            --sw-font-header: 'Montserrat', sans-serif;
+            --sw-font-body: 'Roboto', sans-serif;
+            --sw-transition: all 0.3s ease;
+        }
+
+      /* Contenedor Principal con el espacio exacto para tu Header */
+.sw-contact-wrapper {
+    /* AJUSTE SOLICITADO: 3 centímetros de espacio superior */
+    padding-top: 3cm; 
+    
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 100px; 
+    font-family: var(--sw-font-body);
+    color: var(--sw-text-main);
+    overflow: hidden;
+    position: relative;
+    background-color: var(--sw-bg-dark);
+
+    /* Mantenemos el fondo geométrico animado que ya teníamos */
+     animation: sw-bg-move 20s linear infinite;
+}
+
+        @keyframes sw-bg-move {
+            0% { background-position: 40px 0, 40px 0, 0 0, 0 0; }
+            100% { background-position: 40px 80px, 40px 80px, 0 80px, 0 80px; }
+        }
+
+        .sw-contact-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =========================================================
+           COLUMNA IZQUIERDA: INFORMACIÓN E IMAGEN
+           ========================================================= */
+        .sw-info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sw-project-image {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            transition: var(--sw-transition);
+        }
+
+        .sw-project-image:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 123, 255, 0.2);
+        }
+
+        .sw-text-content h2 {
+            font-family: var(--sw-font-header);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(120deg, #ffffff, var(--sw-color-primary), var(--sw-color-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sw-text-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--sw-text-muted);
+            font-weight: 300;
+        }
+
+        .sw-social-wrapper {
+            margin-top: 10px;
+        }
+
+        .sw-social-wrapper p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--sw-text-main);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .sw-social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .sw-social-link {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--sw-text-main);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: var(--sw-transition);
+        }
+
+        .sw-social-link:hover {
+            background-color: var(--sw-color-primary);
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 123, 255, 0.4);
+            border-color: var(--sw-color-primary);
+        }
+
+        /* =========================================================
+           COLUMNA DERECHA: FORMULARIO PREMIUM
+           ========================================================= */
+        .sw-form-card {
+            background: rgba(20, 26, 38, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .sw-form-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--sw-color-primary), transparent, var(--sw-color-secondary));
+            border-radius: 26px;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .sw-form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .sw-form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--sw-text-muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sw-input, .sw-select, .sw-textarea {
+            width: 100%;
+            background: rgba(10, 14, 23, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: white;
+            font-size: 1rem;
+            font-family: var(--sw-font-body);
+            transition: var(--sw-transition);
+            box-sizing: border-box;
+        }
+
+        .sw-input:focus, .sw-select:focus, .sw-textarea:focus {
+            outline: none;
+            border-color: var(--sw-color-primary);
+            background: rgba(10, 14, 23, 1);
+            box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
+        }
+
+        .sw-textarea {
+            resize: none;
+        }
+
+        /* Estilo para el SELECT */
+        .sw-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='white' viewBox='0 0 16 16'%3%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 20px) center;
+        }
+
+        /* BOTÓN WHATSAPP PREMIUM */
+        .sw-submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--sw-color-whatsapp), #128c7e);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            font-family: var(--sw-font-header);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: var(--sw-transition);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .sw-submit-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* =========================================================
+           RESPONSIVE DESIGN (Adaptabilidad)
+           ========================================================= */
+        @media (max-width: 1024px) {
+            .sw-contact-container {
+                padding-top: 2cm;
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+            .sw-info-column {
+                align-items: center;
+            }
+            .sw-social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sw-contact-wrapper {
+                padding: 30px 15px 70px 15px;
+                padding-top: 1.2cm; /* Espacio suficiente para un header móvil sin desperdiciar pantalla */
+        padding-bottom: 50px;
+            }
+            .sw-form-card {
+                padding: 30px 20px;
+            }
+            .sw-text-content h2 {
+                font-size: 2rem;
+            }
+            .sw-contact-container {
+        gap: 30px; /* Reducimos el espacio entre la imagen y el formulario */
+    }
+        }
+        
+    </style>
+</head>
+<body>
+<!--barra superior-->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <img src="imagenes/logo2.png" alt="Logo" class="main-logo">
+               <!-- <span class="brand-name">SIGWEB <small>DIGITAL STUDIO</small></span>-->
+                <span class="brand-name" >SIGWEB <small style="color: rgb(64, 116, 214);">Digital Studio  </small></span>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#" class="btn-login-mobile"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </header>
+
+    <section class="sw-contact-wrapper">
+        <div class="sw-contact-container">
+            
+            <div class="sw-info-column">
+                <img src="imagenes/pc_resposivo.png" 
+                     alt="Programación y Diseño Web Profesional" 
+                     class="sw-project-image" 
+                     loading="lazy">
+
+                <div class="sw-text-content">
+                    <h2>Impulsa tu negocio con una Web de Élite</h2>
+                    <p>No creamos simples páginas, diseñamos herramientas de venta de alto rendimiento. Si buscas calidad profesional, arquitectura limpia y resultados, estás en el lugar correcto. Cuéntanos tu proyecto por WhatsApp.</p>
+                </div>
+                
+                <div class="sw-social-wrapper">
+                    <p>O búscame en redes:</p>
+                    <div class="sw-social-links">
+                        <a href="#" class="sw-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="sw-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="sw-social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="sw-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sw-form-card">
+                <form id="sw-form-core">
+                    <div class="sw-form-group">
+                        <label for="sw-name">¿Cómo te llamas?</label>
+                        <input type="text" id="sw-name" class="sw-input" placeholder="Ej. Juan Pérez" required>
+                    </div>
+
+                    <div class="sw-form-group">
+                        <label for="sw-project-type">¿Qué necesitas crear?</label>
+                        <select id="sw-project-type" class="sw-select" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="Landing Page">Landing Page Profesional</option>
+                            <option value="Tienda Online">E-commerce / Tienda Online</option>
+                            <option value="Web Corporativa">Web Corporativa Completa</option>
+                            <option value="Rediseño / Optimización">Rediseño o Optimización Web</option>
+                        </select>
+                    </div>
+
+                    <div class="sw-form-group">
+                        <label for="sw-message">Cuéntanos sobre tu idea</label>
+                        <textarea id="sw-message" class="sw-textarea" rows="5" placeholder="Háblame un poco sobre tu negocio y qué objetivos buscas..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="sw-submit-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>COTIZAR POR WHATSAPP</span>
+                        <i class="fas fa-code-branch"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-col reveal">
+            <h2 class="footer-logo">Sig<span>Web</span></h2>
+            <p>Transformamos ideas en experiencias digitales de alto impacto. Especialistas en desarrollo web y diseño creativo en Perú.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Servicios</h3>
+            <ul>
+                <li><a href="#">Diseño Web</a></li>
+                <li><a href="#">Landing Pages</a></li>
+                <li><a href="#">Detalles Virtuales</a></li>
+                <li><a href="#">Marketing Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Lima - Piura, Perú</p>
+            <p><i class="fas fa-envelope"></i> sigwebdigitalstudio@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +51 986 259 466</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SigWeb Studio. Todos los derechos reservados.</p>
+    </div>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</footer>
+
+    <script>
+        document.getElementById('sw-form-core').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // --- CONFIGURACIÓN DE TU TELÉFONO ---
+            // Pon tu número completo con código de país (ej. 52 para México, 51 para Perú) sin espacios.
+            const telefonoWhatsApp = "51986259466"; 
+            // -------------------------------------
+
+            const nombreVal = document.getElementById('sw-name').value;
+            const proyectoVal = document.getElementById('sw-project-type').value;
+            const mensajeVal = document.getElementById('sw-message').value;
+
+            // Construcción del mensaje con formato (negritas)
+            const mensajeEstructurado = `¡Hola! 👋 Me contacto desde la web.%0A%0A*Cliente:* ${nombreVal}%0A*Proyecto:* ${proyectoVal}%0A%0A*Detalles:* ${mensajeVal}`;
+            
+            // Crear la URL de la API de WhatsApp
+            const urlFinal = `https://api.whatsapp.com/send?phone=${telefonoWhatsApp}&text=${mensajeEstructurado}`;
+            
+            // Abrir en nueva pestaña
+            window.open(urlFinal, '_blank');
+        });
+    </script>
+
+</body>
+</html>

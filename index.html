@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigWeb Digital Studio | Innovación Visual</title>
+
+    <!--<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">-->
+
+     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<style>
+
+
+.responsive-showcase {
+    padding: 60px 20px;
+    background-color: var(--bg-section);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.display-grid {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.device-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Estilo Móvil */
+.mobile-frame {
+    width: 180px;
+    height: 380px;
+    background: var(--device-border);
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 4px solid #1e293b;
+}
+
+.mobile-frame .screen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Estilo Laptop */
+.laptop-frame {
+    width: 450px;
+    position: relative;
+}
+
+.laptop-screen {
+    background: var(--device-border);
+    border-radius: 12px 12px 0 0;
+    padding: 12px;
+    border: 4px solid #1e293b;
+    border-bottom: none;
+    height: 280px;
+    overflow: hidden;
+}
+
+.laptop-base {
+    width: 110%;
+    height: 12px;
+    background: #64748b;
+    margin-left: -5%;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+}
+
+/* Videos */
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video llene el contenedor */
+}
+
+/* Botones Personalizados */
+.btn-action {
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-action:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Responsividad para la sección misma */
+@media (max-width: 768px) {
+    .laptop-frame { width: 300px; }
+    .display-grid { gap: 20px; }
+}
+
+/* seccion de seo y mas */
+:root {
+    --dark-blue: #1e3a4c;
+    --accent-orange: #ff6600;
+    --light-bg: #f8f9fa;
+}
+
+.custom-benefits-section {
+    padding: 20px 0px;
+    background-color: #fff;
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- ESTILOS DEL TÍTULO --- */
+.main-header {
+    margin-bottom: 60px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin: 0;
+    font-weight: 300;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: var(--dark-blue);
+    margin: 5px 0 15px 0;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.title-divider {
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-orange);
+    margin: 0 auto;
+}
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #ff8c00; /* Naranja del diseño */
+    --text-color: #555;
+    --bg-card: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+.custom-benefits-section {
+    padding: 60px 20px;
+    background-color: #f9fbfd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Encabezado */
+.benefits-header {
+    margin-bottom: 50px;
+}
+
+.benefits-subtitle {
+    display: block;
+    font-size: 1.2rem;
+    color: #777;
+    font-weight: 300;
+}
+
+.benefits-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.benefits-underline {
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Grid de Beneficios */
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.benefit-card {
+    background: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex: 1 1 200px; /* Base de 200px, crece si hay espacio */
+    max-width: 230px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Iconos */
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.benefit-text {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .benefits-title {
+        font-size: 1.8rem;
+    }
+    
+    .benefit-card {
+        max-width: 100%;
+        flex: 1 1 calc(45% - 20px); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .benefit-card {
+        flex: 1 1 100%; /* 1 columna en móviles pequeños */
+    }
+}
+
+
+
+/*silder profecional */
+
+.sig-projects-slider {
+    padding: 60px 0;
+    color: #fff;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sig-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+}
+
+.sig-slider-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sig-view-all {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.sig-view-all:hover { color: #fff; }
+
+/* Viewport y Track */
+.sig-slider-viewport {
+    position: relative;
+    width: 100%;
+}
+
+.sig-slider-track {
+    display: flex;
+    gap: 0; /* Sin espacio para que se peguen como en la imagen */
+    width: max-content;
+}
+
+.sig-project-card {
+    position: relative;
+    width: 350px; /* Ajustable según necesidad */
+    height: 450px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sig-project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.sig-project-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay con degradados personalizados */
+.sig-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+}
+
+/* Colores de acento para los overlays (opcional para dar variedad) */
+.green-gradient:hover { background: linear-gradient(to top, rgba(0,100,0,0.7), transparent); }
+.red-gradient:hover { background: linear-gradient(to top, rgba(150,0,0,0.7), transparent); }
+
+.sig-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.sig-card-category {
+    font-size: 0.85rem;
+    color: #ddd;
+}
+
+/* Botones de navegación visuales */
+.sig-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.sig-nav-btn.prev { left: 20px; }
+.sig-nav-btn.next { right: 20px; }
+
+</style>
+
+<body>
+
+    <!--iconos flotantes-->
+    <div class="social-sidebar">
+        <a href="https://www.facebook.com/share/1bRDgF338c/" class="icon-social fb"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@sigweb_studio_digital?is_from_webapp=1&sender_device=pc" class="icon-social tk"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/+51986259466" class="icon-social ws"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+<!--barra superior-->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <img src="imagenes/logosifondo.png" alt="Logo" class="main-logo">
+               
+                <!-- <span class="brand-name">SIGWEB <small>DIGITAL STUDIO</small></span>-->
+                <span class="brand-name" >si<span style="color: rgb(255, 255, 255);">WEB</span>za </span>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  
+                </ul>
+            </nav>
+            
+            <a href="#" class="btn-login-mobile"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </header>
+
+<!--main principal-->
+    <section class="hero" id="inicio">
+        <video autoplay muted loop id="bg-video">
+            <source src="imagenes/video5.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Diseño <span class="text-gradient">Premium</span><br>Para Tu Marca</h1>
+            <p class="hero-description">Transformamos negocios locales en potencias digitales. Llevamos tu visión al siguiente nivel con tecnología de vanguardia.</p>
+            <div class="hero-btns">
+                <a  href="contacto.html" class="btn-rect btn-fill">Iniciar Proyecto</a>
+                <a   href="proyectos.html" class="btn-rect btn-outline">Galería </a>
+            </div>
+        </div>
+    </section>
+    
+
+ 
+<!--calificacion numeros-->
+<section class="stats container">
+        <div class="stat-card">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>Recomendaciones</p>
+        </div>
+        <div class="stat-card">
+            <h2 class="counter" data-target="300">0</h2>
+            <p>Clientes Satisfechos</p>
+        </div>
+        <div class="stat-card">
+            <h2 class="counter" data-target="100">0</h2>
+            <p>Proyectos Finalizados</p>
+        </div>
+    </section>
+
+
+        <section class="portfolio-section">
+  <div class="portfolio-container">
+    <h2 class="portfolio-title">Proyectos Destacados</h2>
+    
+    <div class="portfolio-grid">
+      <a href="https://hecarcontratistas.com/" class="portfolio-card">
+        <div class="card-image">
+          <img src="imagenes/hecarcontratistas.png" alt="Diseño Web Proyecto 1">
+          <div class="card-overlay">
+            <span>Ver Proyecto</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>HECAR CONTRATISTAS</h3>
+          <p>Desarrollo Web & Branding</p>
+        </div>
+      </a>
+
+      <a href="https://zesty-phoenix-39c1a7.netlify.app/" class="portfolio-card">
+        <div class="card-image">
+          <img src="imagenes/detalle1.png" alt="Diseño Web Proyecto 2">
+          <div class="card-overlay">
+            <span>Ver Proyecto</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>DETALLES VIRTUAL</h3>
+          <p>Detalle personalizado</p>
+        </div>
+      </a>
+      
+
+
+
+            <a href="https://frolicking-trifle-78b0a5.netlify.app/" class="portfolio-card">
+        <div class="card-image">
+          <img src="imagenes/detalle plantilla.png" alt="Diseño Web Proyecto 2">
+          <div class="card-overlay">
+            <span>Ver Proyecto</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>PLANTILLA </h3>
+          <p>Detalle personalizado</p>
+        </div>
+      </a>
+      
+
+      </div>
+  </div>
+</section>
+    
+<!--slider profecional*/-->
+
+    <section class="sig-projects-slider">
+    <div class="sig-slider-header">
+        <h2 class="sig-slider-title">ÚLTIMOS PROYECTOS</h2>
+        <a href="proyectos.html" class="sig-view-all">VER TODOS <span>&rarr;</span></a>
+    </div>
+
+    <div class="sig-slider-viewport">
+        <div class="sig-slider-track">
+            <div class="sig-project-card">
+                <img src="https://www.ilinium.com/img/blog/blogpost/2025/diseno-responsivo-la-clave-para-conquistar-a-tus-usuarios-en-cualquier-dispositivo-img2.webp" alt="Inka Comex">
+                <div class="sig-card-overlay green-gradient">
+                    <h3 class="sig-card-title">Inka Comex</h3>
+                    <p class="sig-card-category">Creación de contenidos / Malla de contenidos</p>
+                </div>
+            </div>
+
+            <div class="sig-project-card">
+                <img src="https://aukera.es/blog/imagenes/imagen11.png" alt="Ditesac">
+                <div class="sig-card-overlay red-gradient">
+                    <h3 class="sig-card-title">Ditesac</h3>
+                    <p class="sig-card-category">Diseño Gráfico / Identidad visual</p>
+                </div>
+            </div>
+
+            <div class="sig-project-card">
+                <img src="https://universidadeuropea.com/resources/media/images/diseno-responsive-1200x630.2e16d0ba.fill-767x384.jpg" alt="Kick The Rules">
+                <div class="sig-card-overlay purple-gradient">
+                    <h3 class="sig-card-title">Kick The Rules</h3>
+                    <p class="sig-card-category">Malla de contenidos</p>
+                </div>
+            </div>
+
+            <div class="sig-project-card">
+                <img src="https://cdn.prod.website-files.com/64c96252c4314a904a4fb7bd/68f64a1e603b1bd4fc6a0143_porrtada.webp" alt="Solarmod">
+                <div class="sig-card-overlay dark-gradient">
+                    <h3 class="sig-card-title">Solarmod</h3>
+                    <p class="sig-card-category">Malla de contenidos</p>
+                </div>
+            </div>
+            
+            </div>
+
+        <button class="sig-nav-btn prev">&#10094;</button>
+        <button class="sig-nav-btn next">&#10095;</button>
+    </div>
+</section>
+
+<!--seccion servicios-->
+<section class="services-section">
+    <div class="container">
+        <div class="section-header reveal">
+            <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+            <p class="section-subtitle">Soluciones digitales creativas para impulsar tu marca al siguiente nivel.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="icon-box">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Páginas Web Modernas</h3>
+                <p>Sitios web de alto impacto con diseños vanguardistas y optimizados para cualquier dispositivo.</p>
+                <div class="card-border"></div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="icon-box">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>Detalles Virtuales</h3>
+                <p>Experiencias digitales únicas para fechas especiales: cartas interactivas y regalos multimedia.</p>
+                <div class="card-border"></div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="icon-box">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Landing Pages</h3>
+                <p>Páginas de aterrizaje enfocadas en la conversión y velocidad de carga excepcional.</p>
+                <div class="card-border"></div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="icon-box">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Sitios Estáticos</h3>
+                <p>Arquitecturas ligeras y seguras, ideales para portafolios y presentaciones corporativas.</p>
+                <div class="card-border"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--direccion a contacto -->
+<section class="cta-section">
+    <div class="cta-overlay"></div>
+    <div class="cta-content reveal">
+        <h2>¿Te gustaría crear un proyecto con nosotros?</h2>
+        <p>Solicita presupuesto para tu página web. Consigue tener una presencia online que te haga sentir orgulloso.</p>
+        
+        <a href="https://api.whatsapp.com/send?phone=51986259466&text=Hola,%20me%20gustaría%20solicitar%20un%20presupuesto" 
+           target="_blank" 
+           class="btn-whatsapp">
+            PEDIR PRESUPUESTO
+        </a>
+    </div>
+</section>
+
+
+
+<!--celular y laptop pantalla-->
+    <section class="responsive-showcase">
+    <div class="container">
+        <div class="display-grid">
+            
+            <div class="device-wrapper">
+                <div class="mobile-frame">
+                    <div class="screen">
+                        <video autoplay muted loop playsinline>
+                            <source src="imagenes/video5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+               <!-- <button class="btn-action">Ver Demo Móvil</button>-->
+            </div>
+
+            <div class="device-wrapper">
+                <div class="laptop-frame">
+                    <div class="laptop-screen">
+                        <video autoplay muted loop playsinline>
+                            <source src="imagenes/video5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="laptop-base"></div>
+                </div>
+                 <!-- <button class="btn-action">Ver Demo Móvil</button>-->
+            </div>
+            
+
+        </div>
+        <div class="hero-btns">
+                <a  href="proyectos.html" class="btn-rect btn-fill">Ver proyectos detallados</a>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--frase -->
+<section class="trial-section">
+    <div class="trial-content reveal">
+        <h2 class="trial-title">Has que tu marca <br>Cresca ahora</h2>
+        <p class="trial-text">“Convierte tu negocio en una máquina de ventas online: crea tu página web profesional hoy.”</p>
+        
+        <div class="trial-actions">
+            <a href="contacto.html" class="btn-start">COMENZAR</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="custom-benefits-section">
+    <div class="benefits-container">
+        
+        <div class="main-header">
+            <p class="subtitle">Ventajas del</p>
+            <h1 class="main-title">Desarrollo Web a medida</h1>
+            <div class="title-divider"></div>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-th-large"></i></div>
+                <p class="benefit-text">Diseño ajustado a las necesidades de tu negocio</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                <p class="benefit-text">Optimización completa de cara al SEO</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+                <p class="benefit-text">Funcionamiento en todos los navegadores</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+                <p class="benefit-text">Diseño totalmente funcional y escalable</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                <p class="benefit-text">Ofrece una mejor experiencia de usuario</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+
+
+
+
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-col reveal">
+            <h2 class="footer-logo">Sig<span>Web</span></h2>
+            <p>Transformamos ideas en experiencias digitales de alto impacto. Especialistas en desarrollo web y diseño creativo en Perú.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Servicios</h3>
+            <ul>
+                <li><a href="#">Diseño Web</a></li>
+                <li><a href="#">Landing Pages</a></li>
+                <li><a href="#">Detalles Virtuales</a></li>
+                <li><a href="#">Marketing Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Lima - Piura, Perú</p>
+            <p><i class="fas fa-envelope"></i> sigwebdigitalstudio@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +51 986 259 466 </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SigWeb Studio. Todos los derechos reservados.</p>
+    </div>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</footer>
+
+
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.benefit-card');
+    
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Añadimos un pequeño retraso secuencial para cada tarjeta
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        // Estado inicial para la animación
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease-out';
+        observer.observe(card);
+    });
+});
+</script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.sig-slider-track');
+    const cards = document.querySelectorAll('.sig-project-card');
+    
+    // Clonamos las tarjetas para crear el efecto infinito
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        track.appendChild(clone);
+    });
+
+    let scrollAmount = 0;
+    const speed = 1; // Velocidad del deslizamiento (puedes ajustarla)
+
+    function step() {
+        scrollAmount -= speed;
+        
+        // Si el primer set de imágenes ya pasó, reseteamos a 0 sin que se note
+        if (Math.abs(scrollAmount) >= track.scrollWidth / 2) {
+            scrollAmount = 0;
+        }
+        
+        track.style.transform = `translateX(${scrollAmount}px)`;
+        requestAnimationFrame(step);
+    }
+
+    // Iniciar la animación
+    requestAnimationFrame(step);
+
+    // Pausar al pasar el mouse
+    track.addEventListener('mouseenter', () => {
+        // Podrías implementar una lógica de pausa aquí si lo deseas
+    });
+});
+</script>
+
+<!--js de portafolio -->
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.portfolio-card');
+    
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        // Estado inicial para la animación
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease-out';
+        observer.observe(card);
+    });
+});
+    </script>
+</body>
+
+
+</html>

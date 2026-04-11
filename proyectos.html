@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sigwebdigital studio - conoceme </title>
+
+    
+     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    /* Estilos Globales Proyectos */
+.projects-page {
+    background:linear-gradient(135deg, #000000 50%, #0a1e4b 100%);;
+    color: #fff;
+    padding: 100px 0;
+    min-height: 100vh;
+}
+
+.portfolio-header { margin-bottom: 40px; }
+.portfolio-header .subtitle { color: #888; font-size: 0.9rem; text-transform: uppercase; }
+.portfolio-header h1 { font-size: 3rem; font-weight: 900; margin-top: 5px; }
+
+/* Filtros */
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: #0b0234; /* Rojo como en tu imagen */
+    border-color: #f8f7ff;
+}
+
+/* Rejilla */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta de Proyecto */
+.project-card {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    aspect-ratio: 16 / 10;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+}
+
+.card-info h3 {
+    color: #a855f7; /* Color morado similar a tu imagen */
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Animación de filtrado */
+.project-card.hide {
+    display: none;
+}
+
+
+
+
+/* Contenedor principal */
+.slider-infinite {
+    background-color: #05050500;
+    padding: 60px 0;
+    overflow: hidden; /* Oculta lo que sale de la pantalla */
+    width: 100%;
+}
+
+.slider-label {
+    text-align: center;
+    color: #f0ecec;
+    font-size: 1.5rem;
+
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Envoltura del movimiento */
+.marquee-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.marquee-content {
+    display: flex;
+    /* La animación dura 30s, ajusta para más o menos velocidad */
+    animation: scroll-left 30s linear infinite;
+    gap: 20px;
+}
+
+/* Pausa el slider al pasar el mouse */
+.marquee-content:hover {
+    animation-play-state: paused;
+}
+
+/* Estilo de cada cuadro de imagen */
+.slide {
+    flex-shrink: 0;
+    width: 300px;
+    height: 180px;
+    border-radius: 0px;
+    overflow: hidden;
+    filter: grayscale(100%); /* Efecto profesional en blanco y negro */
+    transition: all 0.5s ease;
+    opacity: 0.5;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Recupera color al pasar el mouse */
+.slide:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Keyframes para el movimiento infinito */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Se mueve exactamente el 50% porque el contenido está duplicado */
+        transform: translateX(-50%);
+    }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .slide {
+        width: 220px;
+        height: 140px;
+    }
+}
+</style>
+
+<body>
+
+<body>
+    <!--barra superior-->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <img src="imagenes/logo2.png" alt="Logo" class="main-logo">
+               <!-- <span class="brand-name">SIGWEB <small>DIGITAL STUDIO</small></span>-->
+                <span class="brand-name" >SIGWEB <small style="color: rgb(64, 116, 214);">Digital Studio  </small></span>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  
+                </ul>
+            </nav>
+            
+            <a href="#" class="btn-login-mobile"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </header>
+
+
+    <main class="projects-page">
+
+    <section class="portfolio-container container">
+        <div class="portfolio-header"><br>
+               <h1>Nuestro trabajo</h1>
+            <span class="subtitle">Explora</span>
+
+
+        </div>
+
+
+        <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="web">Desarrollo WEB</button>
+            <button class="filter-btn" data-filter="invitaciones">Invitaciones</button>
+            <button class="filter-btn" data-filter="detalles">Detalles Virtuales</button>
+            <button class="filter-btn" data-filter="portafolios">Portafolios</button>
+        </div>
+
+        <div class="projects-grid">
+            <a href="https://tu-proyecto-web.com" class="project-card" data-category="web">
+                <div class="card-img">
+                    <img src="https://polytag.io/wp-content/uploads/2024/12/Article-QR-Code.jpg" alt="SigWeb Digital">
+                </div>
+                <div class="card-info">
+                    <h3>SigWeb Digital</h3>
+                    <p>Desarrollo Web Profesional</p>
+                </div>
+            </a>
+
+            <a href="proyectos/boda-elegante.html" class="project-card" data-category="invitaciones">
+                <div class="card-img">
+                    <img src="https://aukera.es/blog/imagenes/imagen11.png" alt="Boda Elegante">
+                </div>
+                <div class="card-info">
+                    <h3>Boda Elegante</h3>
+                    <p>Invitación Interactiva</p>
+                </div>
+            </a>
+
+            <a href="detalles/aniversario.html" class="project-card" data-category="detalles">
+                <div class="card-img">
+                    <img src="https://fotografias.lasexta.com/clipping/cmsimages02/2013/11/25/947DC682-D79E-450E-A22D-15F77CB7661B/98.jpg?crop=1200,675,x0,y62&width=1900&height=1069&optimize=high&format=webply" alt="Aniversario Amor">
+                </div>
+                <div class="card-info">
+                    <h3>Aniversario Amor</h3>
+                    <p>Detalle Virtual</p>
+                </div>
+            </a>
+            <a href="detalles/aniversario.html" class="project-card" data-category="detalles">
+                <div class="card-img">
+                    <img src="https://img.freepik.com/foto-gratis/hombre-tiro-medio-gafas-vr_23-2149126949.jpg?semt=ais_hybrid&w=740&q=80" alt="Aniversario Amor">
+                </div>
+                <div class="card-info">
+                    <h3>Aniversario Amor</h3>
+                    <p>Detalle Virtual</p>
+                </div>
+            </a>
+            <a href="detalles/aniversario.html" class="project-card" data-category="detalles">
+                <div class="card-img">
+                    <img src="https://st3.depositphotos.com/1008648/18362/i/450/depositphotos_183620570-stock-photo-businessman-connecting-tech-devices-and.jpg" alt="Aniversario Amor">
+                </div>
+                <div class="card-info">
+                    <h3>Aniversario Amor</h3>
+                    <p>Detalle Virtual</p>
+                </div>
+            </a>
+            <a href="detalles/aniversario.html" class="project-card" data-category="detalles">
+                <div class="card-img">
+                    <img src="https://cdn.prod.website-files.com/64c96252c4314a904a4fb7bd/68f64a1e603b1bd4fc6a0143_porrtada.webp" alt="Aniversario Amor">
+                </div>
+                <div class="card-info">
+                    <h3>Aniversario Amor</h3>
+                    <p>Detalle Virtual</p>
+                </div>
+            </a>
+
+            </div>
+    </section>
+</main>
+
+
+    <section class="slider-infinite">
+   <!-- <p class="slider-label">Nuestros Proyectos Recientes</p>-->
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <div class="slide"><img src="https://polytag.io/wp-content/uploads/2024/12/Article-QR-Code.jpg" alt="P1"></div>
+            <div class="slide"><img src="https://www.ilinium.com/img/blog/blogpost/2025/diseno-responsivo-la-clave-para-conquistar-a-tus-usuarios-en-cualquier-dispositivo-img2.webp" alt="P2"></div>
+            <div class="slide"><img src="https://fotografias.lasexta.com/clipping/cmsimages02/2013/11/25/947DC682-D79E-450E-A22D-15F77CB7661B/98.jpg?crop=1200,675,x0,y62&width=1900&height=1069&optimize=high&format=webply" alt="P3"></div>
+            <div class="slide"><img src="https://img.freepik.com/foto-gratis/hombre-tiro-medio-gafas-vr_23-2149126949.jpg?semt=ais_hybrid&w=740&q=80" alt="P4"></div>
+            <div class="slide"><img src="https://st3.depositphotos.com/1008648/18362/i/450/depositphotos_183620570-stock-photo-businessman-connecting-tech-devices-and.jpg" alt="P5"></div>
+
+            <div class="slide"><img src="https://polytag.io/wp-content/uploads/2024/12/Article-QR-Code.jpg" alt="P1"></div>
+            <div class="slide"><img src="https://www.o10media.es/blog/wp-content/uploads/2023/01/tipaginaspos--web.jpg" alt="P2"></div>
+            <div class="slide"><img src="https://fotografias.lasexta.com/clipping/cmsimages02/2013/11/25/947DC682-D79E-450E-A22D-15F77CB7661B/98.jpg?crop=1200,675,x0,y62&width=1900&height=1069&optimize=high&format=webply" alt="P3"></div>
+            <div class="slide"><img src="https://img.freepik.com/foto-gratis/hombre-tiro-medio-gafas-vr_23-2149126949.jpg?semt=ais_hybrid&w=740&q=80" alt="P4"></div>
+            <div class="slide"><img src="https://st3.depositphotos.com/1008648/18362/i/450/depositphotos_183620570-stock-photo-businessman-connecting-tech-devices-and.jpg" alt="P5"></div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-col reveal">
+            <h2 class="footer-logo">Sig<span>Web</span></h2>
+            <p>Transformamos ideas en experiencias digitales de alto impacto. Especialistas en desarrollo web y diseño creativo en Perú.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Servicios</h3>
+            <ul>
+                <li><a href="#">Diseño Web</a></li>
+                <li><a href="#">Landing Pages</a></li>
+                <li><a href="#">Detalles Virtuales</a></li>
+                <li><a href="#">Marketing Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Lima - Piura, Perú</p>
+            <p><i class="fas fa-envelope"></i> sigwebdigitalstudio@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +51 986 259 466 </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SigWeb Studio. Todos los derechos reservados.</p>
+    </div>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</footer>
+</body>
+
+
+
+<script src="script.js" defer></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remover clase active de todos y ponerla en el actual
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.classList.remove('hide');
+                } else {
+                    card.classList.add('hide');
+                }
+            });
+        });
+    });
+});
+</script>
+
+
+<script>
+    // Este script es opcional ya que el CSS maneja la animación,
+// pero ayuda si quieres añadir interacciones futuras.
+document.addEventListener('DOMContentLoaded', () => {
+    const marquee = document.querySelector('.marquee-content');
+
+    // Puedes ajustar la velocidad dinámicamente si lo deseas
+    // marquee.style.animationDuration = '40s'; 
+    
+    console.log("Slider infinito de SigWeb cargado correctamente.");
+});
+</script>
+</html>

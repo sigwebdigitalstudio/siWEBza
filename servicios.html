@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigWeb Digital Studio | Innovación Visual</title>
+
+     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>:root {
+    --primary-blue: #4074d6;
+    --accent-purple: #a855f7;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.1);
+}
+
+.services-page {
+    background: #000;
+    color: #fff;
+    padding-bottom: 100px;
+}
+
+/* Hero Section */
+.services-hero {
+    text-align: center;
+    padding: 120px 20px 60px;
+}
+
+.badge {
+    background: rgba(64, 116, 214, 0.1);
+    color: var(--primary-blue);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.services-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin: 20px 0;
+    font-weight: 900;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #4074d6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Grid System */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* Card Style */
+.service-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 40px;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-blue);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Icons */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4074d6, #214083);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.icon-purple { background: linear-gradient(135deg, #a855f7, #6b21a8); }
+.icon-red { background: linear-gradient(135deg, #ef4444, #991b1b); }
+
+/* Card Content */
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-list li {
+    font-size: 0.85rem;
+    color: #ddd;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-list li i {
+    color: var(--primary-blue);
+    font-size: 0.7rem;
+}
+
+/* Background Animation Effect */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(64, 116, 214, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}</style>
+<body>
+
+      <!--barra superior-->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <img src="imagenes/logo2.png" alt="Logo" class="main-logo">
+               <!-- <span class="brand-name">SIGWEB <small>DIGITAL STUDIO</small></span>-->
+                <span class="brand-name" >SIGWEB <small style="color: rgb(64, 116, 214);">Digital Studio  </small></span>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  
+                </ul>
+            </nav>
+            
+            <a href="#" class="btn-login-mobile"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </header>
+
+    <main class="services-page">
+    <section class="services-hero">
+        <div class="container">
+            <span class="badge">Nuestras Soluciones</span>
+            <h1>Impulsamos tu <span class="gradient-text">Presencia Digital</span></h1>
+            <p>Fusionamos creatividad y código puro para entregar resultados de alto impacto.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="services-grid">
+            
+            <div class="service-card" data-tilt>
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Desarrollo Web Profesional</h3>
+                <p>Sitios web corporativos y personales optimizados para velocidad y SEO. Código limpio y responsive.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Landing Pages</li>
+                    <li><i class="fas fa-check"></i> Portafolios Digitales</li>
+                    <li><i class="fas fa-check"></i> Web Apps</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-purple">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>Detalles Virtuales</h3>
+                <p>Experiencias digitales interactivas para ocasiones especiales. Sorprende con tecnología.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Invitaciones Digitales</li>
+                    <li><i class="fas fa-check"></i> Cuentas Regresivas</li>
+                    <li><i class="fas fa-check"></i> Mensajes Interactivos</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-blue">
+                    <i class="fas fa-pen-nib"></i>
+                </div>
+                <h3>Diseño Gráfico Digital</h3>
+                <p>Identidad visual impactante para tu marca o negocio. Diseños listos para redes y web.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Logotipos & Branding</li>
+                    <li><i class="fas fa-check"></i> Flyers Publicitarios</li>
+                    <li><i class="fas fa-check"></i> Tarjetas de Presentación</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon icon-red">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Estrategia Digital</h3>
+                <p>Hacemos que tu marca sea vista. Contenido optimizado para conversión en plataformas actuales.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check"></i> Gestión de TikTok</li>
+                    <li><i class="fas fa-check"></i> Publicidad en Redes</li>
+                    <li><i class="fas fa-check"></i> Contenido QR dinámico</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-col reveal">
+            <h2 class="footer-logo">Sig<span>Web</span></h2>
+            <p>Transformamos ideas en experiencias digitales de alto impacto. Especialistas en desarrollo web y diseño creativo en Perú.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Servicios</h3>
+            <ul>
+                <li><a href="#">Diseño Web</a></li>
+                <li><a href="#">Landing Pages</a></li>
+                <li><a href="#">Detalles Virtuales</a></li>
+                <li><a href="#">Marketing Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Lima - Piura, Perú</p>
+            <p><i class="fas fa-envelope"></i> sigwebdigitalstudio@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +51 986 259 466 </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SigWeb Studio. Todos los derechos reservados.</p>
+    </div>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</footer>
+
+
+    <script src="script.js" defer></script>
+</body>
+</html>

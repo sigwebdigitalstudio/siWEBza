@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sigwebdigital studio - conoceme </title>
+
+    
+     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<style>
+    /* Variables de Color */
+:root {
+    --primary-blue: #4074d6;
+    --dark-bg: #0a0a0a;
+    --light-text: #f4f4f4;
+    --gray-text: #a0a0a0;
+    --accent-gradient: linear-gradient(135deg, #121213 0%, #0a1e4b 100%);
+}
+
+/* Globales para la sección */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+    font-weight: 900;
+}
+
+.text-center { text-align: center; }
+
+/* Hero Section */
+.about-hero {
+    padding: 120px 0 60px;
+    background: radial-gradient(circle at top right, #19206d, #000);
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.highlight {
+    color: var(--primary-blue);
+}
+
+/* Story Grid */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.story-content p {
+    color: var(--gray-text);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.floating-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Value Cards */
+.about-values {
+    background: #111;
+    padding: 80px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-blue);
+}
+
+.value-card i {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+/* CTA Section */
+.about-cta {
+    padding: 100px 0;
+    background: var(--accent-gradient);
+    color: white;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 15px 40px;
+    background: white;
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 25px;
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .story-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-hero h1 { font-size: 2.5rem; }
+}
+</style>
+<body>
+    <!--barra superior-->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-area">
+                <img src="imagenes/logo2.png" alt="Logo" class="main-logo">
+               <!-- <span class="brand-name">SIGWEB <small>DIGITAL STUDIO</small></span>-->
+                <span class="brand-name" >SIGWEB <small style="color: rgb(64, 116, 214);">Digital Studio  </small></span>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="conocenos.html">Conócenos</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                  
+                </ul>
+            </nav>
+            
+            <a href="#" class="btn-login-mobile"><i class="fas fa-user-circle"></i></a>
+        </div>
+    </header>
+    <main>
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="fade-in">Transformamos ideas en <span class="highlight">experiencias digitales</span></h1>
+            <p class="fade-in-delay">En SIGWEB Digital Studio, nos apasiona la fusión entre la tecnología y el diseño artístico.</p>
+        </div>
+    </section>
+
+    <section class="about-story container">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <p>Nacimos con el objetivo de ayudar a emprendedores y empresas a destacar en el mundo digital. No solo creamos sitios web; diseñamos <strong>detalles virtuales</strong>, identidades gráficas y soluciones personalizadas que conectan con las personas.</p>
+                <p>Creemos en el código limpio, el diseño minimalista y la funcionalidad excepcional.</p>
+            </div>
+            <div class="story-image">
+                <img src="imagenes/resposivo2.png" alt="Innovación Digital" class="floating-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="about-values">
+        <div class="container">
+            <h2 class="section-title text-center">Nuestro Enfoque</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Pure Code</h3>
+                    <p>Estructuras optimizadas sin librerías pesadas para una velocidad de carga superior.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Diseño a Medida</h3>
+                    <p>Desde logotipos hasta invitaciones digitales, cada píxel cuenta una historia única.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Crecimiento</h3>
+                    <p>Impulsamos tu marca utilizando las últimas tendencias en tecnología y marketing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-cta">
+        <div class="container text-center">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Hagamos que suceda hoy mismo.</p>
+            <a href="contacto.html" class="btn-main">Hablemos</a>
+        </div>
+    </section>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-grid">
+        <div class="footer-col reveal">
+            <h2 class="footer-logo">Sig<span>Web</span></h2>
+            <p>Transformamos ideas en experiencias digitales de alto impacto. Especialistas en desarrollo web y diseño creativo en Perú.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Servicios</h3>
+            <ul>
+                <li><a href="#">Diseño Web</a></li>
+                <li><a href="#">Landing Pages</a></li>
+                <li><a href="#">Detalles Virtuales</a></li>
+                <li><a href="#">Marketing Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Empresa</h3>
+            <ul>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Portafolio</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col reveal">
+            <h3>Contacto</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Lima - Piura, Perú</p>
+            <p><i class="fas fa-envelope"></i> sigwebdigitalstudio@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +51 986 259 466 </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 SigWeb Studio. Todos los derechos reservados.</p>
+    </div>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+</footer>
+
+<script src="script.js" defer></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Manejo del Menú Mobile (Ya incluido en tu base)
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Efecto de Aparición al hacer Scroll (Scroll Reveal)
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, observerOptions);
+
+    // Seleccionamos elementos para animar
+    const animateElements = document.querySelectorAll('.value-card, .story-content, .story-image');
+    
+    animateElements.forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.8s ease-out";
+        observer.observe(el);
+    });
+});
+</script>
+</body>
+</html>
