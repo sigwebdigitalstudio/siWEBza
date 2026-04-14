@@ -107,7 +107,8 @@ user-select: none;
 .hero-btns { display: flex; 
     gap: 20px; 
     justify-content: center; 
-    margin-top: 30px; }
+    margin-top: 30px; 
+}
 
 
 
@@ -373,13 +374,13 @@ footer { padding: 40px 0; border-top: 1px solid #333; position: relative; }
 @media (max-width: 768px) {
     .cta-content h2 { font-size: 2rem; }
     .cta-content p { font-size: 1rem; }
-    .cta-section { padding: 80px 20px; background-attachment: scroll; }
+    .cta-section { padding: 80px 20px; background-attachment: scroll;
+     background-attachment: fixed; /* Efecto Parallax */
+    background-position: center;
+background-size: cover;
+ display: flex;
+    align-items: center;}
 }
-
-
-
-
-
 
 
 /*diseñop de frase elegante */
